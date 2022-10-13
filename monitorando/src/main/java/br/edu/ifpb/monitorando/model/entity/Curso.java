@@ -17,14 +17,13 @@ public class Curso implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50)
-    private String cursoCod;
+    @Column(length = 255)
+    private String nomeCurso;
 
     @Column(length = 255)
     private String coordenador;
 
-    @OneToMany
-    @JoinColumn(name = "pk_disciplina_id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "curso")
     private List<Disciplina> disciplinas;
 
 }
