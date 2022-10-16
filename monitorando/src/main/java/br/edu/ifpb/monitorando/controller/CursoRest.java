@@ -3,8 +3,12 @@ package br.edu.ifpb.monitorando.controller;
 import br.edu.ifpb.monitorando.model.entity.Curso;
 import br.edu.ifpb.monitorando.model.service.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,8 +20,12 @@ public class CursoRest {
     @Autowired
     private CursoService cursoService;
 
-    @GetMapping
-    public List<Curso> getCursos(){
-        return this.cursoService.listarCursos();
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<List<Curso>> getCursos(){
+        List<Curso> cursos = this.cursoService.listarCursos();
+        if(cursos.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(cursos, HttpStatus.OK);
     }
 }
