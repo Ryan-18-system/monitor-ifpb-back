@@ -1,5 +1,6 @@
 package br.edu.ifpb.monitorando.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

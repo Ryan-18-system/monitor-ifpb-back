@@ -1,9 +1,8 @@
 package br.edu.ifpb.monitorando.controller;
 
-import br.edu.ifpb.monitorando.model.dto.CursoDTO;
-import br.edu.ifpb.monitorando.model.entity.Curso;
-import br.edu.ifpb.monitorando.model.service.CursoService;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import br.edu.ifpb.monitorando.model.dto.AlunoDTO;
+import br.edu.ifpb.monitorando.model.entity.Aluno;
+import br.edu.ifpb.monitorando.model.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,18 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cursos")
-public class CursoRest {
+@RequestMapping("/alunos")
+public class AlunoRest {
 
     @Autowired
-    private CursoService cursoService;
+    private AlunoService alunoService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<CursoDTO>> getCursos(){
-        List<CursoDTO> cursos = this.cursoService.listarCursos();
-        if(cursos.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public @ResponseBody ResponseEntity<List<AlunoDTO>>  getAlunot(){
+        List<AlunoDTO> alunos = alunoService.getAlunos();
+        if(alunos.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(cursos, HttpStatus.OK);
+        return new ResponseEntity<>(alunos,HttpStatus.OK);
     }
+
 }
