@@ -1,5 +1,6 @@
 package br.edu.ifpb.monitorando.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,8 +26,7 @@ public class Aluno implements Serializable {
     @Column()
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "pk_curso_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Curso curso;
 
 }

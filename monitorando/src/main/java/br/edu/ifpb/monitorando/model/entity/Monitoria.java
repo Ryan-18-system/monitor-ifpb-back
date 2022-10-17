@@ -1,5 +1,6 @@
 package br.edu.ifpb.monitorando.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,12 +18,10 @@ public class Monitoria implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @OneToOne
-    @JoinColumn(name = "disciplina_id")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Disciplina disciplina;
 
-    @OneToMany
-    @JoinColumn(name = "aluno_id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Aluno> alunos;
 
     @Column()
