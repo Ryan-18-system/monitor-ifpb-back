@@ -9,5 +9,4 @@ public class CursoDTO {
     private String nomeCurso;
     private String coordenador;
     private List<String> disciplinas;
-
 }

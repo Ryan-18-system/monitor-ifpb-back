@@ -24,7 +24,5 @@ public class Curso implements Serializable {
     @Column(length = 255)
     private String coordenador;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "curso")
-    private List<Disciplina> disciplinas;
 
 }
