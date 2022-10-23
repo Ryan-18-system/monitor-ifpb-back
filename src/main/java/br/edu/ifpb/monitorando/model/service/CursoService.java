@@ -17,21 +17,10 @@ public class CursoService {
     @Autowired
     private CursoIF cursoRepository;
 
-    public List<CursoDTO> listarCursos() {
+    public List<Curso> listarCursos() {
 
         List<Curso> cursos = cursoRepository.findAll();
-        List<CursoDTO> cursosDTO = new ArrayList<>();
-        for(Curso curso : cursos){
-            CursoDTO dto = new CursoDTO();
-            BeanUtils.copyProperties(curso, dto);
-            List<String> disciplinas  = new ArrayList<>();
-            for(Disciplina disciplina : curso.getDisciplinas()){
-                disciplinas.add(disciplina.getNome());
-            }
-            dto.setDisciplinas(disciplinas);
-            cursosDTO.add(dto);
-        }
-        return cursosDTO;
+        return cursos;
 
     }
 
