@@ -26,7 +26,7 @@ public class DisciplinaRest {
         }
         return  new ResponseEntity<>(disciplinas,HttpStatus.OK);
     }
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<List<DisciplinaDTO>> getAllDisciplinas(){
         List<DisciplinaDTO> disciplinas = disciplinaService.getAllDisciplinas();
         if (disciplinas == null || disciplinas.isEmpty()) {
