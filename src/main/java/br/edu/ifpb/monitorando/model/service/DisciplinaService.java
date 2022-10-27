@@ -27,4 +27,16 @@ public class DisciplinaService {
         }
         return dtoList;
     }
+
+    public List<DisciplinaDTO> getAllDisciplinas(){
+        List<Disciplina> disciplinas = disciplinaRepository.findAll();
+        List<DisciplinaDTO> listDTO = new ArrayList<>();
+        for(Disciplina d: disciplinas){
+            DisciplinaDTO dto = new DisciplinaDTO();
+            BeanUtils.copyProperties(d,dto);
+            dto.setCurso(d.getCurso().getNomeCurso());
+            listDTO.add(dto);
+        }
+        return listDTO;
+    }
 }

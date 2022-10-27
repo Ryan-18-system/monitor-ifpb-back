@@ -12,4 +12,5 @@ import java.util.List;
 public interface DisciplinaIF extends JpaRepository<Disciplina,Long> {
     @Query(value = "select d from Disciplina d where d.curso.nomeCurso = :nomeCurso")
     List<Disciplina> pesquisarDisciplinasDoCurso(String nomeCurso);
+
 }
