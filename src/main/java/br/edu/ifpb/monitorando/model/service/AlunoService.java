@@ -21,7 +21,6 @@ public class AlunoService {
         for(Aluno aluno : alunos){
             AlunoDTO dto = new AlunoDTO();
             BeanUtils.copyProperties(aluno,dto);
-            dto.setNomeCurso(aluno.getCurso().getNomeCurso());
             dtoList.add(dto);
         }
         return  dtoList;

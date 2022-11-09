@@ -7,6 +7,7 @@ import lombok.Data;
 public class AlunoDTO {
     public String nome;
     public String matricula;
-    public String nomeCurso;
-
+    public String abrevCurso;
+    public String contato;
+    public String urlImage;
 }

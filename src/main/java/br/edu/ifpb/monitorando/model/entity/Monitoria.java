@@ -26,7 +26,8 @@ public class Monitoria implements Serializable {
 
     @Column()
     private String horario;
-
+    @Column()
+    private String diasDaSemana;
     @Column()
     private String sala;
 }

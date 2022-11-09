@@ -11,7 +11,7 @@ public class MonitoriaDTO {
     private String disciplina;
     private String horario;
     private String sala;
-
+    private String diasDaSemana;
     public void setUmAluno(String nome){
         alunos.add(nome);
     }

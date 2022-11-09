@@ -26,6 +26,15 @@ public class Aluno implements Serializable {
     @Column()
     private String email;
 
+    @Column()
+    private String urlImage;
+
+    @Column()
+    private String contato;
+
+    @Column()
+    private String abrevCurso;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Curso curso;
 
