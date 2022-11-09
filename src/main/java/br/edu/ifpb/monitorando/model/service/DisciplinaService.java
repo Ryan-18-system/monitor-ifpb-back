@@ -22,7 +22,6 @@ public class DisciplinaService {
         for(Disciplina d : disciplinas){
             DisciplinaDTO disciplinaDTO = new DisciplinaDTO();
             BeanUtils.copyProperties(d,disciplinaDTO);
-            disciplinaDTO.setCurso(d.getCurso().getNomeCurso());
             dtoList.add(disciplinaDTO);
         }
         return dtoList;
@@ -34,7 +33,6 @@ public class DisciplinaService {
         for(Disciplina d: disciplinas){
             DisciplinaDTO dto = new DisciplinaDTO();
             BeanUtils.copyProperties(d,dto);
-            dto.setCurso(d.getCurso().getNomeCurso());
             listDTO.add(dto);
         }
         return listDTO;
