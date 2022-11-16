@@ -23,8 +23,8 @@ public class CursoRest {
     private CursoService cursoService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<CursoDTO>> getCursos(){
-        List<CursoDTO> cursos = this.cursoService.listarCursos();
+    public @ResponseBody ResponseEntity<List<Curso>> getCursos(){
+        List<Curso> cursos = this.cursoService.listarCursos();
         if(cursos.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

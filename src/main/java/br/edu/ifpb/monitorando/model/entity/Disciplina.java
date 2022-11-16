@@ -23,6 +23,9 @@ public class Disciplina implements Serializable {
     @Column()
     private String Professor;
 
+    @Column()
+    private String abrevCurso;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "pk_curso_id")
     private Curso curso;
